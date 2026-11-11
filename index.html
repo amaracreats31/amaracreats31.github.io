@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,7 +20,8 @@ h2{text-align:center}
 .category{max-width:950px;margin:30px auto}
 .products{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
 .product{background:white;border-radius:15px;padding:12px;text-align:center;box-shadow:0 3px 12px #e8e1ec}
-.photo{height:115px;background:#f0e9f7;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:45px}
+.photo{height:150px;background:#f0e9f7;border-radius:12px;overflow:hidden;display:flex;align-items:center;justify-content:center;font-size:40px}
+.photo img{width:100%;height:100%;object-fit:cover}
 .product h3{font-size:14px;min-height:34px}
 .price{color:#76549a;font-weight:bold}
 .product button{font-size:12px}
@@ -81,80 +81,80 @@ const groups=[
 name:"Keychains & Charms",
 emoji:"🎀",
 items:[
-["Donut Keychain","🍩",50],
-["Clay Letters Keychain","🔠",40],
-["Resin Letters Keychain","💎",80],
-["Spider Keychain","🕷️",90],
-["Flower Charm","🌸",80],
-["Duck Keychain","🐥",120],
-["Premium Duck","🦆",180],
-["Honeybee Charm","🐝",140],
-["Doll Keychain","🎀",110],
-["Jersey Keychain","⚽",120],
-["Mini Clay Fridge Magnet","🧲",79]
+["Duck Keychain", "https://images.unsplash.com/photo-1582562124811-c09040d0a901?w=400", 120],
+["Premium Duck", "https://images.unsplash.com/photo-1559715745-e1b34a258485?w=400", 180],
+["Flower Charm", "https://images.unsplash.com/photo-1590736704728-f4730bb30770?w=400", 80],
+["Spider Keychain", "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?w=400", 90],
+["Clay Letters Keychain", "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400", 40],
+["Resin Letters Keychain", "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=400", 80],
+["Donut Keychain", "https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=400", 50],
+["Honeybee Charm", "https://images.unsplash.com/photo-1589182373726-e4f658ab50f0?w=400", 140],
+["Doll Keychain", "https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?w=400", 110],
+["Jersey Keychain", "https://images.unsplash.com/photo-1508098682722-e99c43a406b2?w=400", 120],
+["Mini Clay Fridge Magnet", "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?w=400", 79]
 ]
 },
 {
 name:"Necklaces & Accessories",
 emoji:"💜",
 items:[
-["Donut Necklace (Any Type)","🍩",99],
-["Letters Necklace","💜",90],
-["Sweet Necklace (All Types)","🧁",110],
-["Bouquet","💐",160],
-["Daisy Flower","🌼",130]
+["Daisy Flower Necklace", "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=400", 130],
+["Bouquet Necklace", "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=400", 160],
+["Donut Necklace (Any Type)", "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=400", 99],
+["Letters Necklace", "https://images.unsplash.com/photo-1611591475179-67314290d452?w=400", 90],
+["Sweet Necklace (All Types)", "https://images.unsplash.com/photo-1589156229687-496a31ad1d1f?w=400", 110]
 ]
 },
 {
 name:"Cute Animal Collection",
 emoji:"🐰",
 items:[
-["Bunny","🐰",150],
-["Capybara","🦫",190],
-["Frog","🐸",140],
-["Teddy Bear","🧸",199],
-["Panda","🐼",180],
-["Kitty","🐱",190]
+["Bunny", "https://images.unsplash.com/photo-1585110396000-c9ffd4e4b308?w=400", 150],
+["Capybara", "https://images.unsplash.com/photo-1564349683136-77e08dba1ef9?w=400", 190],
+["Frog", "https://images.unsplash.com/photo-1550958727-b50a04944d6c?w=400", 140],
+["Teddy Bear", "https://images.unsplash.com/photo-1558060370-d644479cb6f7?w=400", 199],
+["Panda", "https://images.unsplash.com/photo-1564349683136-77e08dba1ef9?w=400", 180],
+["Kitty", "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=400", 190]
 ]
 },
 {
 name:"The Little Comfort Collection",
 emoji:"☁️",
 items:[
-["Bunny Worry Stone","🐰",199],
-["Cloud Worry Stone","☁️",99],
-["Heart Worry Stone","💗",99],
-["Flower Worry Stone","🌸",129],
-["Strawberry Worry Stone","🍓",129],
-["Paw Worry Stone","🐾",149]
+["Bunny Worry Stone", "🐰", 199],
+["Cloud Worry Stone", "☁️", 99],
+["Heart Worry Stone", "💗", 99],
+["Flower Worry Stone", "🌸", 129],
+["Strawberry Worry Stone", "🍓", 129],
+["Paw Worry Stone", "🐾", 149]
 ]
 },
 {
 name:"Stationery & Gifts",
 emoji:"📚",
 items:[
-["Books","📚",150],
-["Floral Bookmark","🌷",99],
-["Mini Photo Frame","🖼️",149]
+["Books", "📚", 150],
+["Floral Bookmark", "🌷", 99],
+["Mini Photo Frame", "🖼️", 149]
 ]
 },
 {
 name:"Home Decor",
 emoji:"🏡",
 items:[
-["Wall Decor","🪻",590],
-["Decorative Shelf (Starting)","🪴",699],
-["Clay Ring Holder","💍",149],
-["Mini Wall Hanging","🧸",199]
+["Wall Decor", "🪻", 590],
+["Decorative Shelf (Starting)", "🪴", 699],
+["Clay Ring Holder", "💍", 149],
+["Mini Wall Hanging", "🧸", 199]
 ]
 },
 {
 name:"Custom & Special Projects",
 emoji:"✨",
 items:[
-["Resin Work","✨",199],
-["Custom Orders (Starting)","🎁",179],
-["Big Projects (Starting ₹700–₹800)","🏡",700]
+["Resin Work", "✨", 199],
+["Custom Orders (Starting)", "🎁", 179],
+["Big Projects (Starting ₹700–₹800)", "🏡", 700]
 ]
 }
 ];
@@ -172,9 +172,17 @@ let price=p[0].includes("Big Projects")
 ?"₹700–₹800"
 :"₹"+p[2];
 if(p[0].includes("Starting")) price+=" onwards";
+
+let photoContent="";
+if(typeof p[1] === "string" && p[1].startsWith("http")){
+photoContent=`<img src="${p[1]}" alt="${p[0]}">`;
+}else{
+photoContent=p[1];
+}
+
 html+=`
 <div class="product">
-<div class="photo">${p[1]}</div>
+<div class="photo">${photoContent}</div>
 <h3>${p[0]}</h3>
 <p class="price">${price}</p>
 <button onclick="addToCart(${g},${i})">Add to Cart +</button>
