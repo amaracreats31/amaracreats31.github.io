@@ -1,0 +1,251 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Amara Creates | Handmade with Love</title>
+
+<style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#faf8fc;color:#30263a;font-family:Arial,sans-serif}
+header{background:#292333;color:white;text-align:center;padding:27px 12px}
+header h1{color:#decafa;letter-spacing:4px;margin:0;font-size:28px}
+nav{background:white;padding:15px;text-align:center;position:sticky;top:0;z-index:5}
+nav a{color:#49365d;text-decoration:none;font-weight:bold;margin:8px;font-size:13px}
+.hero{text-align:center;background:linear-gradient(135deg,#e9dff4,#f8e9f2);padding:60px 15px}
+.hero h2{font-size:30px;color:#49365d}
+.hero p{line-height:1.7}
+button,.btn{background:#49365d;color:white;border:0;padding:11px 16px;border-radius:22px;cursor:pointer;text-decoration:none}
+section{padding:30px 14px}
+h2{text-align:center}
+.category{max-width:1000px;margin:35px auto}
+.category-title{color:#49365d;margin-bottom:20px}
+.products{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.product{background:white;border-radius:16px;padding:10px;text-align:center;box-shadow:0 3px 12px #e8e1ec;overflow:hidden}
+.product img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:12px;background:#f0e9f7}
+.product h3{font-size:14px;min-height:35px}
+.price{color:#76549a;font-weight:bold}
+.product button{font-size:12px}
+.cart{background:white;max-width:650px;margin:auto;padding:20px;border-radius:15px;box-shadow:0 3px 12px #e8e1ec}
+.cart-item{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:10px 0;border-bottom:1px solid #eee;font-size:13px}
+.cart-item button{background:#c47e9c;font-size:11px;padding:8px 12px}
+#total{color:#76549a}
+.note{text-align:center;font-size:12px;color:#766b80;line-height:1.6}
+footer{background:#292333;color:white;text-align:center;padding:28px 12px}
+footer a{color:#decafa}
+@media(min-width:650px){.products{grid-template-columns:repeat(3,1fr)}}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>AMARA CREATES</h1>
+<p>Handmade with Love ♡</p>
+</header>
+
+<nav>
+<a href="#home">HOME</a>
+<a href="#shop">SHOP</a>
+<a href="#cart">MY CART 🛍️</a>
+</nav>
+
+<div class="hero" id="home">
+<h2>Little Things, Big Happiness ♡</h2>
+<p>Handmade charms, accessories, gifts and decor.</p>
+<a class="btn" href="#shop">Explore Collection</a>
+</div>
+
+<section id="shop">
+<h2>Our Collection ♡</h2>
+<div id="allProducts"></div>
+<p class="note">Starting prices may vary according to design and customization.</p>
+</section>
+
+<section id="cart">
+<h2>Your Shopping Cart 🛍️</h2>
+<div class="cart">
+<div id="cartItems">Your cart is empty.</div>
+<h3 id="total">Total: ₹0</h3>
+<button onclick="checkout()">Order via Instagram DM</button>
+<p class="note">Your order summary will be copied. Paste it into our Instagram DM.</p>
+</div>
+</section>
+
+<footer>
+<h2>Amara Creates ♡</h2>
+<p>Thank you for supporting handmade creations!</p>
+<a href="https://instagram.com/amaracreats31" target="_blank">Follow us on Instagram</a>
+<p>© 2026 Amara Creates</p>
+</footer>
+
+<script>
+
+const groups=[
+{
+name:"Keychains & Charms",emoji:"🎀",
+items:[
+["Donut Keychain","🍩",50,"donut dessert"],
+["Clay Letters Keychain","🔠",40,"alphabet keychain"],
+["Resin Letters Keychain","💎",80,"resin jewelry"],
+["Spider Keychain","🕷️",90,"spider miniature"],
+["Flower Charm","🌸",80,"pink flowers"],
+["Duck Keychain","🐥",120,"yellow duckling"],
+["Premium Duck","🦆",180,"cute duck"],
+["Honeybee Charm","🐝",140,"honeybee"],
+["Doll Keychain","🎀",110,"cute doll"],
+["Jersey Keychain","⚽",120,"football jersey"],
+["Mini Clay Fridge Magnet","🧲",79,"fridge magnet"]
+]
+},
+{
+name:"Necklaces & Accessories",emoji:"💜",
+items:[
+["Donut Necklace (Any Type)","🍩",99,"donut necklace"],
+["Letters Necklace","💜",90,"alphabet necklace"],
+["Sweet Necklace (All Types)","🧁",110,"cupcake dessert"],
+["Bouquet","💐",160,"flower bouquet"],
+["Daisy Flower","🌼",130,"daisy flower"]
+]
+},
+{
+name:"Cute Animal Collection",emoji:"🐰",
+items:[
+["Bunny","🐰",150,"cute bunny"],
+["Capybara","🦫",190,"capybara"],
+["Frog","🐸",140,"green frog"],
+["Teddy Bear","🧸",199,"teddy bear"],
+["Panda","🐼",180,"panda bear"],
+["Kitty","🐱",190,"cute kitten"]
+]
+},
+{
+name:"The Little Comfort Collection",emoji:"☁️",
+items:[
+["Bunny Worry Stone","🐰",199,"bunny"],
+["Cloud Worry Stone","☁️",99,"cloud"],
+["Heart Worry Stone","💗",99,"pink heart"],
+["Flower Worry Stone","🌸",129,"pink flower"],
+["Strawberry Worry Stone","🍓",129,"strawberry"],
+["Paw Worry Stone","🐾",149,"paw print"]
+]
+},
+{
+name:"Stationery & Gifts",emoji:"📚",
+items:[
+["Books","📚",150,"books"],
+["Floral Bookmark","🌷",99,"floral bookmark"],
+["Mini Photo Frame","🖼️",149,"mini photo frame"]
+]
+},
+{
+name:"Home Decor",emoji:"🏡",
+items:[
+["Wall Decor","🪻",590,"wall decor"],
+["Decorative Shelf (Starting)","🪴",699,"decorative shelf"],
+["Clay Ring Holder","💍",149,"ring holder"],
+["Mini Wall Hanging","🧸",199,"wall hanging"]
+]
+},
+{
+name:"Custom & Special Projects",emoji:"✨",
+items:[
+["Resin Work","✨",199,"resin art"],
+["Custom Orders (Starting)","🎁",179,"handmade gift"],
+["Big Projects (Starting ₹700–₹800)","🏡",700,"home decor"]
+]
+}
+];
+
+let cart=[];
+
+const container=document.getElementById("allProducts");
+
+groups.forEach((group,g)=>{
+let html=`
+<div class="category">
+<h2 class="category-title">${group.emoji} ${group.name}</h2>
+<div class="products">`;
+
+group.items.forEach((p,i)=>{
+let price=p[0].includes("Big Projects")?"₹700–₹800":"₹"+p[2];
+if(p[0].includes("Starting"))price+=" onwards";
+
+let image="https://loremflickr.com/500/500/"+encodeURIComponent(p[3])+"?lock="+(g*20+i+1);
+
+html+=`
+<div class="product">
+<img src="${image}"
+alt="${p[0]}"
+loading="lazy"
+onerror="this.onerror=null;this.src='https://placehold.co/500x500/f0e9f7/49365d?text=Amara+Creates'">
+<h3>${p[0]}</h3>
+<p class="price">${price}</p>
+<button onclick="addToCart(${g},${i})">Add to Cart +</button>
+</div>`;
+});
+
+html+="</div></div>";
+container.innerHTML+=html;
+});
+
+function addToCart(g,i){
+cart.push({g,i});
+showCart();
+}
+
+function removeItem(n){
+cart.splice(n,1);
+showCart();
+}
+
+function showCart(){
+const box=document.getElementById("cartItems");
+
+if(!cart.length){
+box.innerHTML="Your cart is empty.";
+}else{
+box.innerHTML=cart.map((item,n)=>{
+let p=groups[item.g].items[item.i];
+return `<div class="cart-item">
+<span>${p[0]} - ₹${p[2]}</span>
+<button onclick="removeItem(${n})">Remove</button>
+</div>`;
+}).join("");
+}
+
+let total=cart.reduce((s,item)=>s+groups[item.g].items[item.i][2],0);
+document.getElementById("total").innerText="Total: ₹"+total;
+}
+
+async function checkout(){
+if(!cart.length){
+alert("Please add a product first!");
+return;
+}
+
+let total=cart.reduce((s,item)=>s+groups[item.g].items[item.i][2],0);
+let message="Hello Amara Creates! I want to order:\n\n";
+
+cart.forEach(item=>{
+let p=groups[item.g].items[item.i];
+message+=p[0]+" - ₹"+p[2]+"\n";
+});
+
+message+="\nTotal: ₹"+total;
+
+try{
+await navigator.clipboard.writeText(message);
+alert("Order copied! Paste it into Instagram DM.");
+}catch(e){
+alert("Please copy your order details and send them through Instagram DM.");
+}
+
+window.open("https://ig.me/m/amaracreats31","_blank");
+}
+
+</script>
+</body>
+</html>
